@@ -370,7 +370,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "jest --detectOpenHandles",
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
