@@ -1,7 +1,7 @@
 {
   "name": "altschool-exam-project",
   "version": "1.0.0",
-  "description": "<<<<<<< HEAD\r # altschool-exam-project\r hello world\r =======\r solution to blog api project\r >>>>>>> ed0059f (added readme)",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "jest --detectOpenHandles",
@@ -36,5 +36,6 @@
   },
   "directories": {
     "test": "test"
-  }
+  },
+  "devDependencies": {}
 }
