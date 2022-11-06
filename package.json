@@ -212,11 +212,9 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^7.1.2",
     "passport-strategy": "^1.0.0",
-<<<<<<< HEAD
     "supertest": "^6.3.1"
   },
   "devDependencies": {},
-=======
     "path-exists": "^4.0.0",
     "path-is-absolute": "^1.0.1",
     "path-key": "^3.1.1",
@@ -313,7 +311,6 @@
     "wrappy": "^1.0.2",
     "write-file-atomic": "^4.0.2",
     "y18n": "^5.0.8",
->>>>>>> 9e21a889a23e901bab83fbe07e8d41c40e0d7a05
   "scripts": {
     "test": "jest --detectOpenHandles",
     "start": "node app.js"
