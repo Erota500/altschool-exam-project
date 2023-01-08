@@ -7,6 +7,10 @@ require('dotenv').config()
 require('dotenv').config({ path: 'config.env' })
 const moment = require('moment')
 
+// Use the JSON Web Token (JWT) strategy for authentication
+// The 'secretOrKey' option specifies the secret used to sign the JWT
+// The 'jwtFromRequest' option specifies a function that extracts the JWT from the request
+// If the JWT is valid, the 'async' function is called with the token payload as an argument
 passport.use(
     new JWTstrategy(
         {
@@ -23,6 +27,10 @@ passport.use(
     )
 )
 
+// Use the local (username/password) strategy for sign up
+// The 'usernameField' and 'passwordField' options specify the names of the fields in the request body
+// The 'passReqToCallback' option is set to 'true' to pass the entire request to the callback function
+// If the sign up is successful, the 'async' function is called with the new user object as an argument
 passport.use(
     'signup',
     new localStategy(
@@ -45,6 +53,11 @@ passport.use(
     )
 )
 
+// Use the local (username/password) strategy for login
+// The 'usernameField' and 'passwordField' options specify the names of the fields in the request body
+// The 'passReqToCallback' option is set to 'true' to pass the entire request to the callback function
+// If the login is successful, the 'async' function is called with the user object as an argument
+// If the login fails, the function is called with 'null', 'false', and an error message as arguments
 passport.use(
     'login',
     new localStategy(
@@ -56,19 +69,4 @@ passport.use(
         async function (req, username, password, next) {
             const email = req.body.email;
             try {
-                const user = await userModel.findOne({ email })
-                if (!user) {
-                    return next(null, false, { message: 'User does not exist' })
-                }
-                const validate = await user.validPassword(password)
-
-                if (!validate) {
-                    return next(null, false, { message: 'Wrong email or password' })
-                }
-                return next(null, user, { message: `Welcome ${user}` })
-            } catch (e) {
-                return next(e)
-            }
-        }
-    )
-)
+                const user = await
