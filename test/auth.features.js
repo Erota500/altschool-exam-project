@@ -3,21 +3,26 @@ const request = require("supertest");
 const app = require("../index");
 const { userModel } = require("../models/auth.model");
 
+// Test the /signup route
 describe("User: POST /signup", () => {
   let conn;
 
+  // Connect to the database before running any tests
   beforeAll(async () => {
     conn = await connect();
   });
 
+  // Clean up the database after each test
   afterEach(async () => {
     await conn.cleanup();
   });
 
+  // Disconnect from the database after all tests have run
   afterAll(async () => {
     await conn.disconnect();
   });
 
+  // Test signing up a new user
   it("should signup a user", async () => {
     const user = {
       "first_name": "Oluwafemi",
@@ -30,6 +35,7 @@ describe("User: POST /signup", () => {
       .set("content-type", "application/json")
       .send(user);
 
+    // Check the response status code and body
     expect(res.status).toBe(200);
     expect(res.body).toHaveProperty('message')
     expect(res.body).toHaveProperty('user')
